@@ -2,6 +2,10 @@
 
 This project sets up a Vite-React TypeScript application and integrates it with the Wormhole Connect SDK.
 
+### Demo NTT tokens:
+- [Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.etherscan.io/token/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
+- [Solana: AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY](https://explorer.solana.com/address/AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY?cluster=devnet)
+
 ## Prerequisites
 
 Ensure you have the following installed on your system:
@@ -33,11 +37,7 @@ yarn
 ```
 ```
 
-### 3. Adjust WormholeConnectConfig
-
-Adjust the `WormholeConnectConfig` in `App.tsx` based on the `deployment.json` file from your NTT deployment. This configuration is essential to ensure proper integration with your deployment environment.
-
-### 4. Run the App
+### 3. Run the App
 
 Finally, run your application:
 
