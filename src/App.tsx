@@ -1,10 +1,10 @@
 import WormholeConnect from '@wormhole-foundation/wormhole-connect';
-import wormholeConfig from './wormhole.config';
+import wormholeConfig, { theme } from './wormhole.config';
     
   function App() {
     return (
       <div>
-        <WormholeConnect config={wormholeConfig} />
+        <WormholeConnect config={wormholeConfig} theme={theme} />
       </div>
     )
   }

@@ -1,9 +1,15 @@
 import {
   WormholeConnectConfig,
-  nttRoutes,
+  WormholeConnectTheme,
+  // nttRoutes,
   // nttAutomaticRoute,
-  // nttManualRoute,
+  nttManualRoute,
 } from '@wormhole-foundation/wormhole-connect';
+
+export const theme: WormholeConnectTheme = {
+  mode: 'dark',
+  // primary: '#78c4b6',
+};
 
 const wormholeConfig: WormholeConnectConfig = {
   network: 'Testnet',
@@ -11,6 +17,7 @@ const wormholeConfig: WormholeConnectConfig = {
   tokens: ['NTTsep', 'NTTsol'],
   ui: {
     title: 'Wormhole NTT UI',
+    previewMode: true,
     defaultInputs: {
       fromChain: 'Sepolia',
       toChain: 'Solana'
@@ -18,7 +25,7 @@ const wormholeConfig: WormholeConnectConfig = {
     showHamburgerMenu: false,
   },
   routes: [
-    ...nttRoutes({
+    nttManualRoute({
       tokens: {
         NTT: [
           {
