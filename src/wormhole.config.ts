@@ -13,11 +13,11 @@ export const theme: WormholeConnectTheme = {
 
 const wormholeConfig: WormholeConnectConfig = {
   network: 'Testnet',
-  chains: ["Sepolia", 'Solana'],
-  tokens: ['NTTsep', 'NTTsol'],
+  chains: ["Sepolia", 'Solana', 'ArbitrumSepolia'],
+  tokens: ['NTTsep', 'NTTsol', 'NTTarb'],
   ui: {
     title: 'Wormhole NTT UI',
-    previewMode: true,
+    previewMode: false,
     defaultInputs: {
       fromChain: 'Sepolia',
       toChain: 'Solana'
@@ -50,6 +50,17 @@ const wormholeConfig: WormholeConnectConfig = {
               },
             ],
           },
+          {
+            chain: "ArbitrumSepolia",
+            manager: '0x6bFfF85386a7A0964d7eCBA7F11095b1609b8e0a',
+            token: '0x6015f77A4F6B51D2590BC195832bA529c1FabC98',
+            transceiver: [
+              {
+                address: '0xB674f2e5216F8Ff659d7b9451B45cfF1CFD20367',
+                type: 'wormhole',
+              },
+            ],
+          },
         ],
       },
     })
@@ -68,7 +79,19 @@ const wormholeConfig: WormholeConnectConfig = {
       icon: 'https://wormhole.com/token.png',
       decimals: 18
     },
-
+    NTTarb: {
+      key: 'NTTarb',
+      symbol: 'NTT',
+      nativeChain: 'ArbitrumSepolia',
+      displayName: 'NTT Arbitrum',
+      tokenId: {
+        chain: 'ArbitrumSepolia',
+        address: '0x6015f77A4F6B51D2590BC195832bA529c1FabC98'
+      },
+      coinGeckoId: 'wormhole',
+      icon: 'https://wormhole.com/token.png',
+      decimals: 18
+    },
     NTTsol: {
       key: 'NTTsol',
       symbol: 'NTT',

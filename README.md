@@ -4,6 +4,7 @@ This project sets up a Vite-React TypeScript application and integrates it with 
 
 ### Demo NTT tokens:
 - [Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.etherscan.io/token/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
+- [Arbitrum Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.arbiscan.io/address/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
 - [Solana: AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY](https://explorer.solana.com/address/AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY?cluster=devnet)
 
 ## Prerequisites
