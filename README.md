@@ -3,10 +3,8 @@
 This project sets up a Vite-React TypeScript application and integrates it with the Wormhole Connect SDK.
 
 ### Demo NTT tokens:
-- [Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.etherscan.io/token/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
-- [Arbitrum Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.arbiscan.io/address/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
-- [Base Sepolia: 0x6015f77A4F6B51D2590BC195832bA529c1FabC98](https://sepolia.basescan.org/address/0x6015f77A4F6B51D2590BC195832bA529c1FabC98)
-- [Solana: AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY](https://explorer.solana.com/address/AzzZc7W81GTHCzphCsD3w5xvGWWHEjCAzKwWE47cXATY?cluster=devnet)
+- [Sepolia: 0x16B7237967bBd5DeC11bD6DcBc4475ee266b6Aa4](https://sepolia.etherscan.io/token/0x16B7237967bBd5DeC11bD6DcBc4475ee266b6Aa4)
+- [Solana: 3ocp3jy5s4in9LBmBtyhhRidP8QFao51XcCRqqVfjrDL](https://explorer.solana.com/address/3ocp3jy5s4in9LBmBtyhhRidP8QFao51XcCRqqVfjrDL?cluster=devnet)
 
 ## Prerequisites
 
