@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   WormholeConnectConfig,
   WormholeConnectTheme,
@@ -12,139 +13,83 @@ export const theme: WormholeConnectTheme = {
 };
 
 
-type ManualRouteTokenConfig = Parameters<typeof nttManualRoute>[0]["tokens"];
+type TokenConfig = Parameters<typeof nttManualRoute>[0]["tokens"];
 
-const tokenRoutesConfig: ManualRouteTokenConfig = {
+const tokenRoutesConfig: TokenConfig = {
   NTT: [
     {
       chain: "Sepolia",
-      manager: '0x5C4e192Cd1a96090bbD03c1f79d27517e105cCfa',
-      token: '0x2815E4b501f7f226721D8aEf0d547F727e603A8d',
+      manager: '0x7717b51C81c86FD7696F345F57DffC3cf92700b9',
+      token: '0x16B7237967bBd5DeC11bD6DcBc4475ee266b6Aa4',
       transceiver: [
         {
-          address: '0x1301F38445499ae0628957036f880c6cB6f059c6',
+          address: '0x1C292E9B097b1dbf76Af5043cD350C137d0996E9',
           type: 'wormhole',
         },
       ],
     },
     {
       chain: 'Solana',
-      manager: 'NttxaXYZSkk3LWUYnLLCH8nVv9PzRj6XLNKM9LLE6Vh',
-      token: '7H8USp4TfHeZqMxEPhiY18xWkXH9ZrnLXx8BbzBQFNvA',
+      manager: 'nttXMAn5ZY9XsmVr8sMBZBHbstaVDMaF1jHp1LV4W4k',
+      token: '3ocp3jy5s4in9LBmBtyhhRidP8QFao51XcCRqqVfjrDL',
       // quoter: "",
       transceiver: [
         {
-          address: 'Di1JoiyrVihfLoykDQAWwYuCHXA1FihrUPa1LeFdu5L4',
+          address: 'CgGtZC7A1tvRCx6kfvr3ZP71VJmPRMB4eitaSYY4gPMM',
           type: 'wormhole',
         },
       ],
     },
-    {
-      chain: "ArbitrumSepolia",
-      manager: '0x0A33852cA8bEFc904e136320966dC50B1137131F',
-      token: '0xf5C51455e39233FBefC874235548Aea6a2281356',
-      transceiver: [
-        {
-          address: '0xF3cf167779AB9E0f7881c6983B870f9b19e38722',
-          type: 'wormhole',
-        },
-      ],
-    },
-    // {
-    //   chain: "BaseSepolia",
-    //   manager: '0x6bFfF85386a7A0964d7eCBA7F11095b1609b8e0a',
-    //   token: '0x6015f77A4F6B51D2590BC195832bA529c1FabC98',
-    //   transceiver: [
-    //     {
-    //       address: '0xB674f2e5216F8Ff659d7b9451B45cfF1CFD20367',
-    //       type: 'wormhole',
-    //     },
-    //   ],
-    // },
   ],
 }
 
+const manualRoute = nttManualRoute({
+  tokens: {
+    ...tokenRoutesConfig
+  },
+});
+const automaticRoute = nttAutomaticRoute({
+  tokens: {
+    ...tokenRoutesConfig,
+  },
+});
+
 const wormholeConfig: WormholeConnectConfig = {
   network: 'Testnet',
-  chains: ["Sepolia", 'Solana', 'ArbitrumSepolia'],
-  tokens: ['NTTsep', 'NTTsol', 'NTTarb'],
+  rpcs: {
+    Sepolia: 'https://ethereum-sepolia-rpc.publicnode.com',
+  },
+  chains: ["Sepolia", 'Solana'],
+  tokens: [['Sepolia', '0x16B7237967bBd5DeC11bD6DcBc4475ee266b6Aa4'], ['Solana', '3ocp3jy5s4in9LBmBtyhhRidP8QFao51XcCRqqVfjrDL']],
   ui: {
-    title: 'Wormhole NTT UI',
+    title: 'Wormhole Native Token Transfer',
     previewMode: false,
     defaultInputs: {
-      fromChain: 'ArbitrumSepolia',
+      fromChain: 'Solana',
       toChain: 'Sepolia'
     },
-    showHamburgerMenu: false,
   },
-  routes: [
-    nttManualRoute({
-      tokens: {
-        ...tokenRoutesConfig
-      },
-    }),
-    nttAutomaticRoute({
-      tokens: {
-        ...tokenRoutesConfig,
-      },
-    }),
-  ],
+  routes: [manualRoute as any, automaticRoute as any],
   tokensConfig: {
-    NTTsep: {
-      key: 'NTTsep',
-      symbol: 'NTT',
-      nativeChain: 'Sepolia',
-      displayName: 'NTT Sepolia',
+    VNXsep: {
+      symbol: 'VNX',
+      name: 'VNX Sepolia',
       tokenId: {
         chain: 'Sepolia',
-        address: '0x2815E4b501f7f226721D8aEf0d547F727e603A8d'
+        address: '0x16B7237967bBd5DeC11bD6DcBc4475ee266b6Aa4'
       },
-      coinGeckoId: "",
       // icon: 'https://devnet.irys.xyz/CnzqYHms2c7rTN5Z1mX49yBz3Yd8naHgpibzZkzzwMvZ',
-      icon: '/image1.png',
+      icon: '/image3.png',
       decimals: 9
     },
-    NTTarb: {
-      key: 'NTTarb',
-      symbol: 'NTT',
-      nativeChain: 'ArbitrumSepolia',
-      displayName: 'NTT Arbitrum',
-      tokenId: {
-        chain: 'ArbitrumSepolia',
-        address: '0xf5C51455e39233FBefC874235548Aea6a2281356'
-      },
-      coinGeckoId: '',
-      // coinGeckoId: 'wormhole',
-      icon: 'https://wormhole.com/token.png',
-      decimals: 9
-    },
-    // NTTbase: {
-    //   key: 'NTTbase',
-    //   symbol: 'NTT',
-    //   nativeChain: 'BaseSepolia',
-    //   displayName: 'NTT Base',
-    //   tokenId: {
-    //     chain: 'BaseSepolia',
-    //     address: '0x6015f77A4F6B51D2590BC195832bA529c1FabC98'
-    //   },
-    //   coinGeckoId: '',
-    //   // coinGeckoId: 'wormhole',
-    //   icon: 'https://wormhole.com/token.png',
-    //   decimals: 18
-    // },
-    NTTsol: {
-      key: 'NTTsol',
-      symbol: 'NTT',
-      nativeChain: 'Solana',
-      displayName: 'NTT Solana',
+    VNXsol: {
+      symbol: 'VNX',
+      name: 'VNX Solana',
       tokenId: {
         chain: 'Solana',
-        address: '7H8USp4TfHeZqMxEPhiY18xWkXH9ZrnLXx8BbzBQFNvA'
+        address: '3ocp3jy5s4in9LBmBtyhhRidP8QFao51XcCRqqVfjrDL'
       },
-      coinGeckoId: '',
-      // coinGeckoId: 'wormhole',
-      icon: '/image2.png',
-      // icon: 'https://devnet.irys.xyz/dvUCHHu6NX1LjqQavEZubT1jodJxYgTQcPzePBTJnX2',
+      icon: '/image3.png',
       decimals: 9
     }
   }
